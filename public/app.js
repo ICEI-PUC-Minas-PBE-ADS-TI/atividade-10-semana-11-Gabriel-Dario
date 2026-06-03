@@ -167,19 +167,15 @@ function renderFeatured(documentRef, manhwa) {
     return;
   }
 
+  panel.style.backgroundImage = `linear-gradient(90deg, rgba(12, 10, 18, 0.88), rgba(12, 10, 18, 0.44), rgba(12, 10, 18, 0.12)), url("${escapeHtml(manhwa.bannerImage)}")`;
   panel.innerHTML = `
-    <div class="hero-copy">
-      <p class="section-label">Leitura em foco</p>
-      <h2>${escapeHtml(manhwa.title)}</h2>
-      <p>${escapeHtml(manhwa.description)}</p>
-      <div class="metric-row">
-        <span>${escapeHtml(manhwa.genre)}</span>
-        <span>${escapeHtml(formatScore(manhwa.score))}</span>
-        <span>${escapeHtml(manhwa.status)}</span>
-      </div>
-      <a class="primary-link" href="${buildDetailsUrl(manhwa.id)}">Abrir detalhes</a>
+    <div class="hero-content">
+      <p>Leitura em foco</p>
+      <h1>Manhwa Shelf</h1>
+      <strong>${escapeHtml(manhwa.title)}</strong>
+      <span>${escapeHtml(manhwa.description)}</span>
+      <a class="primary-link" href="${buildDetailsUrl(manhwa.id)}">Abrir destaque</a>
     </div>
-    <img src="${escapeHtml(manhwa.bannerImage)}" alt="Imagem de ${escapeHtml(manhwa.title)}">
   `;
 }
 
@@ -197,21 +193,30 @@ function renderCards(documentRef, manhwas) {
 
   cardsContainer.innerHTML = manhwas
     .map(
-      (manhwa) => `
-        <article class="manhwa-card">
-          <a href="${buildDetailsUrl(manhwa.id)}" aria-label="Abrir detalhes de ${escapeHtml(manhwa.title)}">
+      (manhwa, index) => `
+        <article class="reading-item">
+          <a class="reading-image" href="${buildDetailsUrl(manhwa.id)}" aria-label="Abrir detalhes de ${escapeHtml(manhwa.title)}">
             <img src="${escapeHtml(manhwa.coverImage)}" alt="Capa de ${escapeHtml(manhwa.title)}">
           </a>
-          <div class="card-content">
-            <div>
-              <span class="card-tag">${escapeHtml(manhwa.status)}</span>
-              <h3>${escapeHtml(manhwa.title)}</h3>
-              <p>${escapeHtml(manhwa.description)}</p>
-            </div>
-            <div class="card-footer">
-              <span>${escapeHtml(manhwa.year)}</span>
-              <strong>${escapeHtml(formatScore(manhwa.score))}</strong>
-            </div>
+          <div class="reading-copy">
+            <span>${String(index + 1).padStart(2, "0")}</span>
+            <h3>${escapeHtml(manhwa.title)}</h3>
+            <p>${escapeHtml(manhwa.description)}</p>
+            <dl>
+              <div>
+                <dt>Ano</dt>
+                <dd>${escapeHtml(manhwa.year)}</dd>
+              </div>
+              <div>
+                <dt>Nota</dt>
+                <dd>${escapeHtml(formatScore(manhwa.score))}</dd>
+              </div>
+              <div>
+                <dt>Status</dt>
+                <dd>${escapeHtml(manhwa.status)}</dd>
+              </div>
+            </dl>
+            <a class="text-link" href="${buildDetailsUrl(manhwa.id)}">Ver detalhes</a>
           </div>
         </article>
       `
@@ -227,12 +232,9 @@ function renderStudent(documentRef, student) {
 
   container.innerHTML = `
     <div class="student-grid">
-      <div>
-        <h3>${escapeHtml(student.name)}</h3>
-        <p>Aluno de ${escapeHtml(student.course)}. Projeto criado para praticar DOM, JSON, cards dinamicos e query string.</p>
-      </div>
+      <h3>${escapeHtml(student.name)}</h3>
+      <p>Projeto criado para praticar DOM, JSON, componentes reutilizaveis e navegacao por query string.</p>
       <div class="student-links">
-        <span>Codigo: ${escapeHtml(student.personCode)}</span>
         <a href="${escapeHtml(student.githubUrl)}" target="_blank" rel="noopener noreferrer">GitHub</a>
         <a href="${escapeHtml(student.linkedinUrl)}" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       </div>
@@ -243,6 +245,7 @@ function renderStudent(documentRef, student) {
 function renderDetail(documentRef, manhwa) {
   const title = documentRef.getElementById("detailTitle");
   const idLabel = documentRef.getElementById("detailIdLabel");
+  const hero = documentRef.getElementById("detailHero");
   const content = documentRef.getElementById("detailContent");
 
   if (title) {
@@ -250,7 +253,11 @@ function renderDetail(documentRef, manhwa) {
   }
 
   if (idLabel) {
-    idLabel.textContent = `id ${manhwa.id}`;
+    idLabel.textContent = `id ${manhwa.id} / ${manhwa.status}`;
+  }
+
+  if (hero) {
+    hero.style.backgroundImage = `linear-gradient(90deg, rgba(12, 10, 18, 0.88), rgba(12, 10, 18, 0.5), rgba(12, 10, 18, 0.16)), url("${escapeHtml(manhwa.bannerImage)}")`;
   }
 
   if (!content) {
@@ -258,18 +265,15 @@ function renderDetail(documentRef, manhwa) {
   }
 
   content.innerHTML = `
-    <article class="detail-card">
+    <article class="detail-story">
       <img class="detail-cover" src="${escapeHtml(manhwa.coverImage)}" alt="Capa de ${escapeHtml(manhwa.title)}">
-      <div class="detail-body">
-        <span class="card-tag">${escapeHtml(manhwa.status)}</span>
+      <div>
+        <p class="detail-kicker">${escapeHtml(manhwa.originalTitle)}</p>
         <h2>${escapeHtml(manhwa.title)}</h2>
         <p>${escapeHtml(manhwa.content)}</p>
-        <div class="facts-grid">${renderFacts(manhwa)}</div>
       </div>
     </article>
-    <aside class="detail-banner">
-      <img src="${escapeHtml(manhwa.bannerImage)}" alt="Imagem ampla de ${escapeHtml(manhwa.title)}">
-    </aside>
+    <div class="facts-grid">${renderFacts(manhwa)}</div>
   `;
 }
 

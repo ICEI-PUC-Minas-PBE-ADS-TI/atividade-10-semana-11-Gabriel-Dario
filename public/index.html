@@ -6,68 +6,38 @@
     <title>Manhwa Shelf</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <div class="app-shell">
-      <aside class="sidebar">
-        <a class="brand-block" href="index.html" aria-label="Pagina inicial Manhwa Shelf">
-          <span class="brand-mark">MS</span>
-          <span>
-            <strong>Manhwa Shelf</strong>
-            <small>leituras coreanas</small>
-          </span>
-        </a>
+    <header class="site-header">
+      <a class="brand-link" href="index.html">Manhwa Shelf</a>
+      <nav class="site-nav" aria-label="Navegacao principal">
+        <a href="#catalog">Catalogo</a>
+        <a href="#student">Aluno</a>
+      </nav>
+    </header>
 
-        <nav class="nav-list" aria-label="Navegacao principal">
-          <a class="nav-item is-active" href="index.html">Inicio</a>
-          <a class="nav-item" href="#catalog">Catalogo</a>
-          <a class="nav-item" href="#student">Aluno</a>
-        </nav>
+    <main>
+      <section class="home-hero" id="featuredPanel" aria-label="Manhwa em destaque"></section>
 
-        <div class="sidebar-note">
-          <span class="status-light" aria-hidden="true"></span>
-          <p>Semana 11</p>
-          <strong>Detalhes dinamicos</strong>
+      <section class="content-section" id="catalog">
+        <div class="section-heading">
+          <p>Catalogo</p>
+          <h2>Leituras coreanas populares</h2>
+          <span id="catalogCount">0 itens</span>
         </div>
-      </aside>
+        <div class="reading-list" id="manhwaCards"></div>
+      </section>
 
-      <main class="main-content">
-        <header class="topbar">
-          <div>
-            <p class="section-label">Projeto de Desenvolvimento Web</p>
-            <h1>Manhwas populares em uma vitrine dinamica</h1>
-          </div>
-          <p class="topbar-summary">
-            Cards montados por JavaScript e uma pagina de detalhes reutilizada para todos os itens.
-          </p>
-        </header>
-
-        <section class="hero-panel" id="featuredPanel" aria-label="Manhwa em destaque"></section>
-
-        <section class="panel" id="catalog">
-          <div class="panel-header">
-            <div>
-              <p class="section-label">Catalogo</p>
-              <h2>Todos os manhwas</h2>
-            </div>
-            <span id="catalogCount" class="count-badge">0 itens</span>
-          </div>
-          <div class="cards-grid" id="manhwaCards"></div>
-        </section>
-
-        <section class="panel student-panel" id="student">
-          <div class="panel-header">
-            <div>
-              <p class="section-label">Autoria</p>
-              <h2>Informacoes do aluno</h2>
-            </div>
-          </div>
-          <div id="studentInfo"></div>
-        </section>
-      </main>
-    </div>
+      <section class="content-section student-section" id="student">
+        <div class="section-heading">
+          <p>Autoria</p>
+          <h2>Informacoes do aluno</h2>
+        </div>
+        <div id="studentInfo"></div>
+      </section>
+    </main>
 
     <script src="app.js"></script>
   </body>
