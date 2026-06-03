@@ -5,9 +5,8 @@ Projeto desenvolvido para a atividade de paginas de detalhes dinamicas.
 ## Informacoes Gerais
 
 - Nome: Gabriel Dario Matos Clemente
-- Codigo de pessoa: 1638929
-- Curso: Analise e Desenvolvimento de Sistemas
-- Tema do projeto: catalogo de manhwas coreanos populares
+- Matricula: 928004
+- Descreva brevemente seu projeto: catalogo de manhwas coreanos populares com pagina inicial dinamica e pagina de detalhes carregada por query string.
 
 O projeto mostra uma pagina inicial com cards montados por JavaScript a partir de uma estrutura JSON. Ao clicar em um card, o usuario e direcionado para `detalhes.html?id=...`, onde a mesma pagina de detalhes carrega as informacoes do item selecionado pela query string.
 
