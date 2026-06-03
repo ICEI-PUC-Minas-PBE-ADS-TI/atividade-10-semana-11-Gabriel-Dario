@@ -1,9 +1,9 @@
 :root {
-  --bg: #fbfaf8;
+  --bg: #d7dae3;
   --ink: #17131f;
-  --muted: #706a7c;
-  --line: #ded8e8;
-  --surface: #ffffff;
+  --muted: #5f6270;
+  --line: #bfc3cf;
+  --surface: #e8e9ef;
   --accent: #6d3fc2;
   --accent-dark: #3b1f51;
   --radius: 8px;
@@ -251,7 +251,7 @@ img {
   padding: 12px;
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  background: var(--surface);
+  background: rgba(255, 255, 255, 0.34);
 }
 
 dt,
