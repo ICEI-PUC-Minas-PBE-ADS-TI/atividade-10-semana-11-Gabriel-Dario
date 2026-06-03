@@ -43,8 +43,3 @@ test("formatScore uses the project score pattern", () => {
 test("escapeHtml protects dynamic text before rendering", () => {
   assert.equal(escapeHtml("<img src=x onerror=alert(1)>"), "&lt;img src=x onerror=alert(1)&gt;");
 });
-
-test("student metadata is filled", () => {
-  assert.equal(projectData.student.name, "Gabriel Dario Matos Clemente");
-  assert.equal(projectData.student.personCode, "1638929");
-});

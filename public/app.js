@@ -1,13 +1,6 @@
 "use strict";
 
 const projectData = {
-  student: {
-    name: "Gabriel Dario Matos Clemente",
-    personCode: "1638929",
-    course: "Analise e Desenvolvimento de Sistemas",
-    githubUrl: "https://github.com/Gabriel-Dario",
-    linkedinUrl: "https://www.linkedin.com/in/gabriel-dario-b073bb412/"
-  },
   manhwas: [
     {
       id: 1,
@@ -224,24 +217,6 @@ function renderCards(documentRef, manhwas) {
     .join("");
 }
 
-function renderStudent(documentRef, student) {
-  const container = documentRef.getElementById("studentInfo");
-  if (!container) {
-    return;
-  }
-
-  container.innerHTML = `
-    <div class="student-grid">
-      <h3>${escapeHtml(student.name)}</h3>
-      <p>Projeto criado para praticar DOM, JSON, componentes reutilizaveis e navegacao por query string.</p>
-      <div class="student-links">
-        <a href="${escapeHtml(student.githubUrl)}" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <a href="${escapeHtml(student.linkedinUrl)}" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-      </div>
-    </div>
-  `;
-}
-
 function renderDetail(documentRef, manhwa) {
   const title = documentRef.getElementById("detailTitle");
   const idLabel = documentRef.getElementById("detailIdLabel");
@@ -299,7 +274,6 @@ function renderNotFound(documentRef) {
 function renderHomePage(documentRef = document, data = projectData) {
   renderFeatured(documentRef, getFeaturedManhwa(data.manhwas));
   renderCards(documentRef, data.manhwas);
-  renderStudent(documentRef, data.student);
 }
 
 function renderDetailPage(documentRef = document, data = projectData, search = window.location.search) {

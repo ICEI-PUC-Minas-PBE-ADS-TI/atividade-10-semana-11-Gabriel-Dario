@@ -117,7 +117,6 @@ img {
 .detail-hero-content h1,
 .section-heading h2,
 .detail-story h2,
-.student-grid h3,
 .empty-state h2 {
   margin: 0;
   font-family: var(--heading);
@@ -234,7 +233,6 @@ img {
 }
 
 .reading-copy p,
-.student-grid p,
 .detail-story p,
 .empty-state p {
   color: var(--muted);
@@ -279,40 +277,6 @@ dd,
 
 .text-link:hover {
   color: var(--accent-dark);
-}
-
-.student-section {
-  padding-top: 36px;
-}
-
-.student-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(240px, 0.6fr);
-  gap: 26px;
-  padding: 28px 0;
-  border-top: 1px solid var(--line);
-}
-
-.student-grid h3 {
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  line-height: 0.9;
-}
-
-.student-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  align-content: start;
-}
-
-.student-links a {
-  min-height: 40px;
-  padding: 10px 13px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-weight: 800;
-  text-decoration: none;
-  background: var(--surface);
 }
 
 .detail-hero {
@@ -383,8 +347,7 @@ dd,
   }
 
   .reading-item,
-  .detail-story,
-  .student-grid {
+  .detail-story {
     grid-template-columns: 1fr;
   }
 
