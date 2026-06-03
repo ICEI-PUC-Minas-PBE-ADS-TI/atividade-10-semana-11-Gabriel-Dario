@@ -1,0 +1,9 @@
+{
+  "name": "manhwa-shelf-semana-11",
+  "version": "1.0.0",
+  "description": "Atividade pratica da Semana 11 com home e detalhes dinamicos sobre manhwas.",
+  "scripts": {
+    "test": "node --test tests/app.test.js"
+  },
+  "devDependencies": {}
+}

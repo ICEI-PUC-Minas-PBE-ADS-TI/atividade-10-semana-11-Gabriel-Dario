@@ -1,11 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!doctype html>
+<html lang="pt-BR">
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalhe do Item</title>
-</head>
-<body>
-    
-</body>
+    <title>Manhwa Shelf | Detalhes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <a class="brand-block" href="index.html" aria-label="Pagina inicial Manhwa Shelf">
+          <span class="brand-mark">MS</span>
+          <span>
+            <strong>Manhwa Shelf</strong>
+            <small>leituras coreanas</small>
+          </span>
+        </a>
+
+        <nav class="nav-list" aria-label="Navegacao principal">
+          <a class="nav-item" href="index.html">Inicio</a>
+          <a class="nav-item" href="index.html#catalog">Catalogo</a>
+          <a class="nav-item" href="index.html#student">Aluno</a>
+        </nav>
+
+        <div class="sidebar-note">
+          <span class="status-light" aria-hidden="true"></span>
+          <p>Query string</p>
+          <strong id="detailIdLabel">id</strong>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <header class="topbar">
+          <div>
+            <p class="section-label">Detalhes do item</p>
+            <h1 id="detailTitle">Carregando...</h1>
+          </div>
+          <a class="secondary-link" href="index.html">Voltar ao catalogo</a>
+        </header>
+
+        <section id="detailContent" class="detail-layout"></section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
 </html>
